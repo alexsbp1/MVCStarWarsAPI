@@ -1,0 +1,16 @@
+﻿@model List<Tuple<string, string>>
+@{
+    ViewBag.Title = "CharacterSearch";
+}
+
+<h2>Character Search Result</h2>
+
+
+@for (int i = 0; i < Model.Count; i++)
+ {
+    <br />
+    @Html.ActionLink(Model.ElementAt(i).Item1, "SelectedCharacter", new { link = Model.ElementAt(i).Item2 })
+    <br />
+ }
+
+

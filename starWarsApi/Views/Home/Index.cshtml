@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <br />
+            <p>A list of all characters</p>
+            <p><a class="btn btn-default" href="@Url.Action("CharacterList", "Character")"> Characters</a></p>
+        </div>
+
+        <div class="col-md-4">
+            <br />
+            <p>A list of all movies</p>
+            <p><a class="btn btn-default" href="@Url.Action("MovieList", "Movie")"> Movies </a></p>
+        </div>
+
+        <div class="col-md-4">
+            <br />
+            <p>A list of all planets</p>
+            <p><a class="btn btn-default"  href="@Url.Action("PlanetList", "Planet")"> Planets</a></p>
+
+            <p> <a>  </a> </p>
+        </div>
+    </div>

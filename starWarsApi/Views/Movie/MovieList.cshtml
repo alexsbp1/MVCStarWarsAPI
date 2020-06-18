@@ -1,0 +1,22 @@
+﻿@model starWarsApi.Models.MoviesModel.Application
+@{
+    ViewBag.Title = "MovieList";
+}
+<br />
+<h2>List of movies</h2>
+<br />
+
+@using (Html.BeginForm("MovieSearch", "Movie", FormMethod.Get))
+{
+    @Html.TextBox("searchName");
+    <input type="submit" value="Search" />
+}
+<br />
+<br />
+
+@for (int i = 0; i < Model.results.Count; i++)
+{
+    <br />
+    @Html.ActionLink(Model.results.ElementAt(i).title, "SelectedMovie", new { link = Model.results.ElementAt(i).url })
+    <br />
+}

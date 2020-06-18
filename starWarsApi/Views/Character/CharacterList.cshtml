@@ -1,0 +1,45 @@
+﻿
+@model starWarsApi.Models.CharactersModel.Application
+@{
+    ViewBag.Title = "CharacterListModel";
+}
+
+<br />
+<h2>List of characters</h2>
+<br />
+
+@using (Html.BeginForm("CharacterSearch", "Character", FormMethod.Get))
+{
+    @Html.TextBox("searchName");
+    <input type="submit" value="Search"  />
+}
+<br />
+<br />
+
+
+<h4>Next</h4>
+
+@Html.ActionLink("Next list of characters", "CharacterList", new { link = Model.next })
+
+<br />
+
+<h4>Previous</h4>
+@if (Model.previous == null)
+{
+    ViewBag.ErrorMessage = "Cant go back";
+}
+else
+{
+    @Html.ActionLink("Previous list of characters", "CharacterList", new { link = Model.previous })
+}
+<br />
+<br />
+<br />
+
+@for (int i = 0; i < Model.results.Count; i++)
+{
+    <br />
+    @Html.ActionLink(Model.results.ElementAt(i).name, "SelectedCharacter", new { link = Model.results.ElementAt(i).url })
+    <br />
+}
+

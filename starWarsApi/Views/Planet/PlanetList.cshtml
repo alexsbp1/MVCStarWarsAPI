@@ -1,0 +1,47 @@
+﻿@model starWarsApi.Models.PlanetsModel.Application
+@{
+    ViewBag.Title = "PlanetsList";
+}
+
+<br />
+<h2>List of planets</h2>
+<br />
+
+@using (Html.BeginForm("PlanetSearch", "Planet", FormMethod.Get))
+{
+    @Html.TextBox("searchName");
+    <input type="submit" value="Search" />
+}
+<br />
+<br />
+
+<h4>Next</h4>
+@if (Model.next == null)
+{
+    ViewBag.ErrorMessage = "Cant go forward";
+}
+else
+{
+    @Html.ActionLink("Next list of planets", "PlanetList", new { link = Model.next })
+}
+<br />
+
+<h4>Previous</h4>
+@if (Model.previous == null)
+{
+    ViewBag.ErrorMessage = "Cant go back";
+}
+else
+{
+    @Html.ActionLink("Previous list of planets", "PlanetList", new { link = Model.previous })
+}
+<br />
+<br />
+<br />
+
+@for (int i = 0; i < Model.results.Count; i++)
+{
+    <br />
+    @Html.ActionLink(Model.results.ElementAt(i).name, "SelectedPlanet", new { link = Model.results.ElementAt(i).url })
+    <br />
+}

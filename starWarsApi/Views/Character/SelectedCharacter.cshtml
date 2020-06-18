@@ -1,0 +1,86 @@
+﻿@model starWarsApi.Models.CharactersModel.Results
+@{
+    ViewBag.Title = "Character";
+}
+
+<br />
+<h2>Character</h2>
+<br />
+
+<h4>Name</h4>
+<p>@Model.name</p>
+<br />
+
+<h4>Height</h4>
+<p>@Model.height</p>
+<br />
+
+<h4>Mass</h4>
+<p>@Model.mass</p>
+<br />
+
+<h4>Hair Color</h4>
+<p>@Model.hair_color</p>
+<br />
+
+<h4>Skin Color</h4>
+<p>@Model.skin_color</p>
+<br />
+
+<h4>Eye Color</h4>
+<p>@Model.eye_color</p>
+<br />
+
+<h4>Birth Year</h4>
+<p>@Model.birth_year</p>
+<br />
+
+<h4>Gender</h4>
+<p>@Model.gender</p>
+<br />
+
+<h4>Homeworld</h4>
+<p>@Model.homeworld</p>
+<br />
+
+<h4>Films</h4>
+@foreach (var film in Model.films)
+{
+    @Html.ActionLink(film.ToString(), "SelectedMovie", "Movie", new { link = film }, new { id = "SelectedMovie" })
+    <br />
+}
+<br />
+
+<h4>Species</h4>
+@foreach (var specie in Model.species)
+{
+    <p>@specie.ToString()</p>
+}
+<br />
+
+<h4>Vehicles</h4>
+@foreach (var vehicle in Model.vehicles)
+{
+    <p>@vehicle.ToString()</p>
+}
+<br />
+
+<h4>Starships</h4>
+@foreach (var starship in Model.starships)
+{
+    <p>@starship.ToString()</p>
+}
+<br />
+
+<h4>Created</h4>
+<p>@Model.created</p>
+<br />
+
+<h4>Edited</h4>
+<p>@Model.edited</p>
+<br />
+
+<h4>URL</h4>
+<p>@Model.url</p>
+<br />
+
